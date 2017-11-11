@@ -34,7 +34,7 @@ export default class Scatterplot extends Component {
         	onValueMouseOut={this.forgetValue}/>
         {this.state.value ? 
      		<Hint value={this.state.value}>
-  				<div style={{background: 'black'}}>
+  				<div style={{background: this.state.value.color}}>
     				<h3>{this.state.value.playerName}</h3>
   				</div>
 				</Hint> : null }
