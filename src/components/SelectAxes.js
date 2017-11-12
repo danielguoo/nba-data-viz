@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const SelectAxes = ({handleXChange, handleYChange, xseries, yseries}) => (
+const SelectAxes = ({handleXChange, handleYChange, x, y}) => (
   <form>
     <label>
       X-Series:
-      <select value={xseries} onChange={handleXChange}>
+      <select value={x} onChange={handleXChange}>
         {Object.keys(NBA_CATEGORY_FIELDS).map((cat,i) => <option key={i} value={NBA_CATEGORY_FIELDS[cat]}>{cat}</option> )}
       </select>
     </label>
     <label>
       Y-Series:
-      <select value={yseries} onChange={handleYChange}>
+      <select value={y} onChange={handleYChange}>
         {Object.keys(NBA_CATEGORY_FIELDS).map((cat, i) => <option key={i} value={NBA_CATEGORY_FIELDS[cat]}>{cat}</option> )}
       </select>
     </label>

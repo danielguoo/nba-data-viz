@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
-import individuals from './individuals'
+import data from './data'
 import visualization from './visualization'
 
 const rootReducer = combineReducers({
-  individuals,
+  data,
   visualization
 })
 

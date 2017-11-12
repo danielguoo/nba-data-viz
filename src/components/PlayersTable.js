@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const PlayersTable = ({onHeaderClick, isFetching, individuals}) => (
+const PlayersTable = ({onClick, slicedData}) => (
   <table>
     <thead>
       <tr>
-        {isFetching ? null : Object.keys(NBA_CATEGORY_FIELDS).map((cat_name,i) => <th onClick={console.log("yo")} key={i}>{cat_name}</th>)}
+        {Object.keys(NBA_CATEGORY_FIELDS).map((cat_name,i) => <th onClick={() => onClick(cat_name)} key={i}>{cat_name}</th>)}
       </tr>
     </thead>
     <tbody>
-      {individuals.map((player, i) => {return <PlayerRow key={i} playerInfo={player}/> })}
+      {slicedData.map((player, i) => {return <PlayerRow key={i} playerInfo={player}/> })}
     </tbody>
   </table>
 )
@@ -21,8 +21,8 @@ const PlayerRow = ({playerInfo}) => (
 )
 
 PlayersTable.propTypes = {
-  onHeaderClick: PropTypes.func.isRequired,
-  individuals: PropTypes.array.isRequired
+  onClick: PropTypes.func.isRequired,
+  slicedData: PropTypes.array.isRequired
 }
 
 const NBA_CATEGORY_FIELDS = { "Name":"playerName","Team":"teamAbbreviation","GP":"gp","MIN":"min",
