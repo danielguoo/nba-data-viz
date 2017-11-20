@@ -4,6 +4,7 @@ import './App.css';
 import 'react-vis/dist/style.css';
 import TableView from '../containers/TableView'
 import VisualizationView from '../containers/VisualizationView'
+import Filter from '../components/Filter'
 
 
 const App = () =>  {
@@ -15,6 +16,7 @@ const App = () =>  {
         <h1 className="App-title">NBA Data Visualization</h1>
       </header>
       <VisualizationView/>
+      <Filter/>
       <TableView/>
     </div>
   );

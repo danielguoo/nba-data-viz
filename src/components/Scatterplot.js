@@ -18,15 +18,15 @@ export default class Scatterplot extends Component {
 	}
 
 	render(){
-		const {data} = this.props
+		const {data, x, y} = this.props
 		return (
 			<XYPlot
         width={800}
         height={500}>
         <HorizontalGridLines/>
         <VerticalGridLines/>
-        <XAxis />
-        <YAxis />
+        <XAxis title={x}/>
+        <YAxis title={y}/>
         <MarkSeries
         	colorType="literal"
           data={data}

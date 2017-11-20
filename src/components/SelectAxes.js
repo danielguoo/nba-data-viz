@@ -18,7 +18,7 @@ const SelectAxes = ({handleXChange, handleYChange, x, y}) => (
   </form>
 )
 
-const NBA_CATEGORY_FIELDS = { "Name":"playerName","Team":"teamAbbreviation","GP":"gp","MIN":"min",
+const NBA_CATEGORY_FIELDS = { "Name":"playerName","Team":"teamAbbreviation","Age": "age", "GP":"gp","MIN":"min",
                              "FG": "fgm", "FGA": "fga", "FG%":"fgPct", "3P": "fG3M", "3PA": "fG3A", 
                              "3P%": "fg3Pct", "FTM": "ftm",
                              "FTA": "fta", "FT%": "ftPct", "ORB": "oreb", "DRB": "dreb", "TRB": "reb",

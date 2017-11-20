@@ -23,7 +23,7 @@ class VisualizationView extends Component {
     const {data} = this.props
     return (
       <div>
-        <Scatterplot data={data.map(player => ({...player, color: TEAM_COLORS[player.teamAbbreviation], x: player[this.state.x], y: player[this.state.y]}))} />
+        <Scatterplot data={data.map(player => ({...player, color: TEAM_COLORS[player.teamAbbreviation], x: player[this.state.x], y: player[this.state.y]}))} x={this.state.x} y={this.state.y} />
         <SelectAxes x={this.state.x} y={this.state.y} handleXChange={this.handleXChange} handleYChange={this.handleYChange} />
       </div>
     )
