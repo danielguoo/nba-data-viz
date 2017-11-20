@@ -32,13 +32,20 @@ export const recieveData = (players) => ({
 })
 
 export const fetchNBAData = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+	console.log(getState().filters)
   	dispatch(requestData())
-    return nba.stats.playerStats({PlayerPosition: "", PlayerExperience: ""})
+    return nba.stats.playerStats(getState().filters)
       .then(response => response.leagueDashPlayerStats)
       .then(players => dispatch(recieveData(players)))
   }
 }
 
+export const addFilterAndUpdate = (cat, option) => {
+	return (dispatch, getState) => {
+		dispatch(addFilter(cat, option))
+		dispatch(fetchNBAData())
+	}
+}
 
 

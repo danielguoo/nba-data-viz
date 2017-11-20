@@ -1,16 +1,16 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { addFilter } from '../actions'
+import { addFilterAndUpdate } from '../actions'
 
 class Filter extends Component {
   constructor(props){
     super(props)
-    this.state = {experience: "All"}
+    this.state = {playerExperience: "All", PlayerPosition: 'All'}
   }
 
-  handleClick = (category) => {
-    this.setState({experience: category})
-    this.props.callFilter("experience",category)
+  handleClick = (option,category) => {
+    this.setState({[category]: option})
+    this.props.callFilter(category,option)
   }
 
   // handleYChange(event) {
@@ -20,18 +20,22 @@ class Filter extends Component {
   render () {
     return (
       <div>
-        {PlayerExperience.map((category,i)=> <button key={i} onClick={()=>this.handleClick(category)}> {category} </button>)}
+        <br/>
+        {PlayerExperience.map((option,i)=> <button key={i} onClick={()=>this.handleClick(option, "PlayerExperience")}> {option} </button>)}
+        <br/> <br/>
+        {PlayerPosition.map((option,i)=> <button key={i} onClick={()=>this.handleClick(option, "PlayerPosition")}> {option} </button>)}
       </div>
     )
   }
 }
 
 const PlayerExperience = ["Rookie", "Sophomore", "All"]
+const PlayerPosition = ['G', 'F', 'C', 'All']
 
 const mapDispatchToProps = dispatch => {
   return {
     callFilter: (cat,option) => {
-      dispatch(addFilter(cat,option))
+      dispatch(addFilterAndUpdate(cat, option === 'All' ? '' : option))
     }
   }
 }

@@ -1,5 +1,5 @@
 //individual means player in this app
-import { REQUEST_DATA, RECIEVE_DATA, SORT_BY, ADD_FILTER } from '../actions'
+import { REQUEST_DATA, RECIEVE_DATA, SORT_BY } from '../actions'
 
 const data = (state = {isFetching: false, allData: [], slicedData: [], currentSort: "min", sorted: true}, action) => {
 	switch(action.type) {
@@ -16,7 +16,6 @@ const data = (state = {isFetching: false, allData: [], slicedData: [], currentSo
 				sorted: true,
 				slicedData: action.players.filter(player => player.min > 5 && player.gp > 5).sort((a,b) => b["min"] - a["min"])
 			}
-		case ADD_FILTER:
 		case SORT_BY:
 			const newSort = NBA_CATEGORY_FIELDS[action.cat]
 			if (newSort === state.currentSort) {
