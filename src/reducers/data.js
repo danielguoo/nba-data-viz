@@ -14,7 +14,7 @@ const data = (state = {isFetching: false, allData: [], slicedData: [], currentSo
 				isFetching: false,
 				allData: action.players,
 				sorted: true,
-				slicedData: action.players.filter(player => player.min > 5 && player.gp > 5).sort((a,b) => b["min"] - a["min"])
+				slicedData: action.players.filter(player => player.min > 5 && player.gp > 5).sort((a,b) => b[state.currentSort] - a[state.currentSort])
 			}
 		case SORT_BY:
 			const newSort = NBA_CATEGORY_FIELDS[action.cat]

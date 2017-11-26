@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { addFilterAndUpdate } from '../actions'
+import './Filter.css'
 
 class Filter extends Component {
   constructor(props){
     super(props)
-    this.state = {playerExperience: "All", PlayerPosition: 'All'}
+    this.state = {PlayerExperience: "All", PlayerPosition: 'All'}
   }
 
   handleClick = (option,category) => {
@@ -19,18 +20,21 @@ class Filter extends Component {
 
   render () {
     return (
-      <div>
-        <br/>
-        {PlayerExperience.map((option,i)=> <button key={i} onClick={()=>this.handleClick(option, "PlayerExperience")}> {option} </button>)}
-        <br/> <br/>
-        {PlayerPosition.map((option,i)=> <button key={i} onClick={()=>this.handleClick(option, "PlayerPosition")}> {option} </button>)}
+      <div className="Filter-button">
+          {Object.keys(FilterCategories).map((name, i) => 
+            <div key={i}>
+            {name.slice(6)}: 
+            {FilterCategories[name].map((option,j)=>
+              <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
+                <button onClick={()=>this.handleClick(option, name)}> {option} </button>
+              </span>)
+          }</div>)}
       </div>
     )
   }
 }
 
-const PlayerExperience = ["Rookie", "Sophomore", "All"]
-const PlayerPosition = ['G', 'F', 'C', 'All']
+const FilterCategories = {"PlayerExperience" : ["Rookie", "Sophomore", "All"], "PlayerPosition" : ['G', 'F', 'C', 'All']}
 
 const mapDispatchToProps = dispatch => {
   return {
