@@ -1,0 +1,10 @@
+.Filter-button button {
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.Filter-button button:focus {outline:0;}
+
+.Filter-selectedButton button {
+    font-weight: bold;
+}
