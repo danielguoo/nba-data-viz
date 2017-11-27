@@ -23,7 +23,7 @@ class Filter extends Component {
       <div className="Filter-button">
           {Object.keys(FilterCategories).map((name, i) => 
             <div key={i}>
-            {name.slice(6)}: 
+            {name}: 
             {FilterCategories[name].map((option,j)=>
               <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
                 <button onClick={()=>this.handleClick(option, name)}> {option} </button>
@@ -34,7 +34,8 @@ class Filter extends Component {
   }
 }
 
-const FilterCategories = {"PlayerExperience" : ["Rookie", "Sophomore", "All"], "PlayerPosition" : ['G', 'F', 'C', 'All']}
+const FilterCategories = {"PlayerExperience" : ["Rookie", "Sophomore", "All"], "PlayerPosition" : ['G', 'F', 'C', 'All'], 
+                          "DraftYear": [2016, 2017], "Season": ["2015-16", "2016-17", "2017-18"]}
 
 const mapDispatchToProps = dispatch => {
   return {
