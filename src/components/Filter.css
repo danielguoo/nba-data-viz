@@ -8,3 +8,21 @@
 .Filter-selectedButton button {
     font-weight: bold;
 }
+
+.Sidebar {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    border: 1px solid;
+    border-color: black;
+    background-color: white;
+    top: 0;
+    right: 0;
+    padding-top:0px;
+    overflow-x: hidden;
+
+}
+
+.Filter-title {
+    font-weight: bold;
+}

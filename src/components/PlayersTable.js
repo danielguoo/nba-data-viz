@@ -6,6 +6,7 @@ const PlayersTable = ({onClick, slicedData}) => (
     <thead>
       <tr>
         {Object.keys(NBA_CATEGORY_FIELDS).map((cat_name,i) => <th onClick={() => onClick(cat_name)} key={i}>{cat_name}</th>)}
+        <th> TS% </th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@ const PlayersTable = ({onClick, slicedData}) => (
 const PlayerRow = ({playerInfo}) => (
   <tr>
     {Object.values(NBA_CATEGORY_FIELDS).map((cat,i) => <td key={i}> {playerInfo[cat]}</td>)}
+    <td> {(playerInfo.pts / ((2 * playerInfo.fga) + (.88 * playerInfo.fta))).toFixed(3)} </td>
   </tr>
 )
 

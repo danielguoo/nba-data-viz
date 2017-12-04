@@ -29,9 +29,7 @@
 table {
     display: block;
     border-collapse: collapse;
-    height: 500px;
     width: 100%;
-    overflow-y: scroll;
 }
 
 th {

@@ -6,7 +6,7 @@ import './Filter.css'
 class Filter extends Component {
   constructor(props){
     super(props)
-    this.state = {PlayerExperience: "All", PlayerPosition: 'All'}
+    this.state = {PlayerExperience: "All", PlayerPosition: 'All', DraftYear:'All',Season:"2017-18"}
   }
 
   handleClick = (option,category) => {
@@ -20,22 +20,25 @@ class Filter extends Component {
 
   render () {
     return (
-      <div className="Filter-button">
-          {Object.keys(FilterCategories).map((name, i) => 
-            <div key={i}>
-            {name}: 
-            {FilterCategories[name].map((option,j)=>
-              <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
-                <button onClick={()=>this.handleClick(option, name)}> {option} </button>
-              </span>)
-          }</div>)}
+      <div className="Sidebar">
+        <h2> Filter Options </h2>
+        <div className="Filter-button">
+            {Object.keys(FilterCategories).map((name, i) => 
+              <div key={i}>
+              <div className="Filter-title"> <h3> {name}: </h3> </div>
+              {FilterCategories[name].map((option,j)=>
+                <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
+                  <button onClick={()=>this.handleClick(option, name)}> {option} </button>
+                </span>)
+            }</div>)}
+        </div>
       </div>
     )
   }
 }
 
 const FilterCategories = {"PlayerExperience" : ["Rookie", "Sophomore", "All"], "PlayerPosition" : ['G', 'F', 'C', 'All'], 
-                          "DraftYear": [2016, 2017], "Season": ["2015-16", "2016-17", "2017-18"]}
+                          "DraftYear": [2016, 2017, "All"], "Season": ["2015-16", "2016-17", "2017-18"]}
 
 const mapDispatchToProps = dispatch => {
   return {

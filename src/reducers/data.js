@@ -9,6 +9,7 @@ const data = (state = {isFetching: false, allData: [], slicedData: [], currentSo
 				isFetching: true,
 			}
 		case RECIEVE_DATA:
+			console.log(action.players)
 			return {
 				...state,
 				isFetching: false,
