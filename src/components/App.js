@@ -5,19 +5,23 @@ import 'react-vis/dist/style.css';
 import TableView from '../containers/TableView'
 import VisualizationView from '../containers/VisualizationView'
 import Filter from '../components/Filter'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar'
 
 
 const App = () =>  {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt='nbalogo' />
-        <h1 className="App-title">NBA Data Visualization</h1>
-      </header>
-      <VisualizationView/>
-      <Filter/>
-      <TableView/>
+      <MuiThemeProvider>
+        <AppBar title='NBA Data Visualization'
+                />
+        <div className="Body">
+          <VisualizationView/>
+          <Filter/>
+          <TableView/>
+        </div>
+      </MuiThemeProvider>
     </div>
   );
 }
