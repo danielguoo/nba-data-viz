@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from '../nbalogo.png';
 import './App.css';
 import 'react-vis/dist/style.css';
@@ -9,21 +9,30 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar'
 
 
-const App = () =>  {
+class App extends Component  {
 
-  return (
-    <div className="App">
-      <MuiThemeProvider>
-        <AppBar title='NBA Data Visualization'
-                />
-        <div className="Body">
-          <VisualizationView/>
-          <Filter/>
-          <TableView/>
-        </div>
-      </MuiThemeProvider>
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+  handleToggle = () => this.setState({open: !this.state.open})
+  render () {
+    return (
+      <div className="App">
+        <MuiThemeProvider>
+          <AppBar title='NBA Data Visualization'
+                  onLeftIconButtonClick={this.handleToggle}
+                  zDepth='0'
+                  />
+          <div className="Body">
+            <VisualizationView/>
+            <Filter open={this.state.open}/>
+            <TableView/>
+          </div>
+        </MuiThemeProvider>
+      </div>
+    )
+  }
 }
 
 

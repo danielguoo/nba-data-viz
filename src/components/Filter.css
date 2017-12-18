@@ -9,16 +9,20 @@
     font-weight: bold;
 }
 
+.closedSidebar {
+    width: 0;
+}
+
 .Sidebar {
     height: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     border: 1px solid;
     border-color: black;
     background-color: white;
     top: 0;
     right: 0;
-    padding-top:0px;
+    padding-top:45px;
     overflow-x: hidden;
 
 }

@@ -19,18 +19,21 @@ class Filter extends Component {
   // }
 
   render () {
+    const {open} = this.props
     return (
-      <div className="Sidebar">
-        <h2> Filter Options </h2>
-        <div className="Filter-button">
-            {Object.keys(FilterCategories).map((name, i) => 
-              <div key={i}>
-              <div className="Filter-title"> <h3> {name}: </h3> </div>
-              {FilterCategories[name].map((option,j)=>
-                <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
-                  <button onClick={()=>this.handleClick(option, name)}> {option} </button>
-                </span>)
-            }</div>)}
+      <div log={console.log(this.props)} className="Sidebar">
+          <div className= {open ? null : "closedSidebar"}> 
+          <h2> Filter Options </h2>
+          <div className="Filter-button">
+              {Object.keys(FilterCategories).map((name, i) => 
+                <div key={i}>
+                <div className="Filter-title"> <h3> {name}: </h3> </div>
+                {FilterCategories[name].map((option,j)=>
+                  <span key={j} className={this.state[name] === option ? "Filter-selectedButton": null}> 
+                    <button onClick={()=>this.handleClick(option, name)}> {option} </button>
+                  </span>)
+              }</div>)}
+          </div>
         </div>
       </div>
     )
